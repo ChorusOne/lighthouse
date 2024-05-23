@@ -336,7 +336,7 @@ impl Default for Config {
             disable_discovery: false,
             disable_quic_support: false,
             upnp_enabled: true,
-            network_load: 4,
+            network_load: 93,
             private: false,
             subscribe_all_subnets: false,
             import_all_attestations: false,
@@ -406,6 +406,17 @@ impl From<u8> for NetworkLoad {
                 gossip_lazy: 3,
                 history_gossip: 3,
                 heartbeat_interval: Duration::from_millis(1000),
+            },
+            // Teku parameters
+            93 => NetworkLoad {
+                name: "Teku",
+                mesh_n_low: 6,
+                outbound_min: 3,
+                mesh_n: 8,
+                mesh_n_high: 12,
+                gossip_lazy: 6,
+                history_gossip: 6,
+                heartbeat_interval: Duration::from_millis(700),
             },
             // 5 and above
             _ => NetworkLoad {
